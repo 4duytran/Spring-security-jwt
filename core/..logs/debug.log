@@ -1,5 +1,0 @@
- INFO 2020-11-13T09:10:39,570 [main][[]] HelloABESApplication - Starting HelloABESApplication on retif-abes with PID 11826 (/work/developpement/projects/abes-hello-back/core/target/classes started by retif in /work/developpement/projects/abes-hello-back/core)
-DEBUG 2020-11-13T09:10:39,573 [main][[]] HelloABESApplication - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
- INFO 2020-11-13T09:10:39,574 [main][[]] HelloABESApplication - No active profile set, falling back to default profiles: default
-DEBUG 2020-11-13T09:10:40,442 [main][[]] fr.abes.helloabes.web.configuration.JwtFilter - Filter 'jwtFilter' configured for use
- INFO 2020-11-13T09:10:41,367 [main][[]] HelloABESApplication - Started HelloABESApplication in 2.062 seconds (JVM running for 2.537)
