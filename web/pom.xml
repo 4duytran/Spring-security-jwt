@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =======================================================================
+        Fichier de configuration du projet Maven
+
+     ======================================================================= -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.example</groupId>
+		<artifactId>demospringsecurity</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<!-- =========================================================== -->
+	<!--     Description du module                                   -->
+	<!-- =========================================================== -->
+
+	<artifactId>web</artifactId>
+	<packaging>war</packaging>
+	<name>Web API</name>
+	<description>API RESTful de l'application.</description>
+
+	<!-- =========================================================== -->
+	<!--     Gestion des dependances                                 -->
+	<!-- =========================================================== -->
+	<dependencies>
+
+		<!-- === Module projet === -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>core</artifactId>
+			<version>${project.parent.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- === Spring web === -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!--- === Tests === -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<!-- =========================================================== -->
+	<!--     Configuration de la compilation                         -->
+	<!-- =========================================================== -->
+	<build>
+		<plugins>
+			<!-- ======================================================= -->
+			<!--     Compilation de l'application Spring                 -->
+			<!-- ======================================================= -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
