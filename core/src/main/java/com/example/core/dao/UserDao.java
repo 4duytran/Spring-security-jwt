@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * @author Duy Tran
  */
 @Repository
-public interface IUserDao extends JpaRepository<AppUser, String> {
+public interface UserDao extends JpaRepository<AppUser, String> {
 
     /**
      * Recherche un utilisateur du service web dans le dépot à partir de son nom d'utilisateur.

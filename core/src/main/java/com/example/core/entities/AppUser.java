@@ -1,19 +1,16 @@
 package com.example.core.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import java.util.List;
 
 /**
  * Représente un utilisateur du service web. {@code AppUser} est synchronisé avec une base de données via Entity.
@@ -52,12 +49,6 @@ public class AppUser {
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", message = "Le mot de passe ne respecte pas les règles de sécurité")
     @ApiModelProperty(value = "mot de passe de l'utilisateur", name = "passWord", dataType = "String", example = "motDePasseC0!mplex")
     private String passWord;
-
-    /** Relation avec la table commande */
-    @OneToMany(mappedBy = "user",
-    cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Commandes> commandes;
 
 
     /**

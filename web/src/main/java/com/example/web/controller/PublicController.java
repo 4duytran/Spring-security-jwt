@@ -1,7 +1,7 @@
 package com.example.web.controller;
 
 import com.example.core.entities.AppUser;
-import com.example.core.service.IUserService;
+import com.example.core.service.UserService;
 import com.example.core.service.impl.UserServiceImpl;
 import com.example.web.configuration.AuthenticationResponse;
 import com.example.web.configuration.JwtUtility;
@@ -28,13 +28,13 @@ import java.util.Map;
  * @author Duy Tran
  */
 @Slf4j
-@CrossOrigin(origins = "https://hello-dev.abes.fr")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
 public class PublicController {
 
     /** Service pour les utilisateurs du service web.  */
-    private final IUserService userService;
+    private final UserService userService;
 
     /** Filtre pour les jetons JWT. */
     private final JwtUtility jwtUtility;
@@ -69,7 +69,7 @@ public class PublicController {
     })
     public Map displayHome() {
 
-        return Collections.singletonMap("response", "Hello from ABES - PUBLIC API PAGE");
+        return Collections.singletonMap("response", "Hello from PUBLIC API PAGE");
     }
 
     /**

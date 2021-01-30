@@ -1,7 +1,7 @@
 package com.example.core.service;
 
 import com.example.core.entities.AppUser;
-import com.example.core.dao.IUserDao;
+import com.example.core.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class CustomUserDetailsService implements UserDetailsService {
 
     /** Dépot d'utilisateurs du service web. */
-    private final IUserDao userRepository;
+    private final UserDao userRepository;
 
     /**
      * Construit un service d'authentification des utilisateurs pour le framework Spring 
@@ -29,7 +29,7 @@ public class CustomUserDetailsService implements UserDetailsService {
      * @param userRepository Dépot d'utilisateurs du service web.
      */
     @Autowired
-    public CustomUserDetailsService(IUserDao userRepository) {
+    public CustomUserDetailsService(UserDao userRepository) {
         this.userRepository = userRepository;
     }
 

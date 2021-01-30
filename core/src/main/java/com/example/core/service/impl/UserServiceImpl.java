@@ -2,8 +2,8 @@ package com.example.core.service.impl;
 
 import com.example.core.entities.AppUser;
 import com.example.core.exception.UserAlreadyExistsException;
-import com.example.core.service.IUserService;
-import com.example.core.dao.IUserDao;
+import com.example.core.service.UserService;
+import com.example.core.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,10 +17,10 @@ import java.util.List;
  * @author Duy Tran
  */
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements UserService {
 
     /** Dépot d'utilisateurs du service web. */
-    private final IUserDao userRepository;
+    private final UserDao userRepository;
 
     /** Encodeur de mots de passe selon un algorithmede crpytage. */
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -31,7 +31,7 @@ public class UserServiceImpl implements IUserService {
      * @param bCryptPasswordEncoder Encodeur de mots de passe selon un algorithmede crpytage.
      */
     @Autowired
-    public UserServiceImpl(IUserDao userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserServiceImpl(UserDao userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
@@ -63,16 +63,6 @@ public class UserServiceImpl implements IUserService {
     @Override
     public AppUser findUserByUserName(AppUser user) {
         return userRepository.findByUserName(user.getUserName());
-    }
-
-    @Override
-    public AppUser findUserByUserName(String userName) {
-        return userRepository.findByUserName(userName);
-    }
-
-    @Override
-    public List<AppUser> getAllUsers() {
-        return userRepository.findAll();
     }
 
 

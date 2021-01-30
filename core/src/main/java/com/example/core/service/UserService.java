@@ -11,7 +11,7 @@ import java.util.List;
  * @since 0.0.1
  * @author Duy Tran
  */
-public interface IUserService {
+public interface UserService {
 
     /**
      * Enregistre nouvel utilisateur du service web.
@@ -27,8 +27,5 @@ public interface IUserService {
      */
     AppUser findUserByUserName(AppUser user);
 
-    AppUser findUserByUserName(String userName);
-
-    List<AppUser> getAllUsers();
 
 }
